@@ -10,7 +10,27 @@ class CartItem extends React.Component {
             img: ''
         }
         //this.increaseQuantity = this.increaseQuantity.bind(this);//binding this value to state..
+        // this.testing();
     }
+
+    // testing(){
+    //     const promise = new Promise((resolve, reject) =>{
+    //         setTimeout(() =>{
+    //             resolve('done');
+    //         }, 5000);
+    //     })
+
+        // promise.then(() =>{
+            //setState func acts like synchronus call
+            // this.setState({qty: this.state.qty + 10});
+
+            // this.setState({qty: this.state.qty + 10});
+            
+            // this.setState({qty: this.state.qty + 10});
+
+            // console.log('state', this.state);
+        // });
+    // }
     //or we can use arrow func here to bind
     increaseQuantity = () => {
         //this.state.qty += 1; this will only increase qty in background and not be shown in browser
@@ -27,9 +47,9 @@ class CartItem extends React.Component {
             return{
                 qty: prevState.qty + 1
             }
-        }, () => {
-            console.log('this.state', this.state)//this shows the updated value of qty
-        })
+        }, ()=>{
+            console.log('this', this.state)
+        });
     }
 
     decreaseQuantity = () => {
@@ -43,7 +63,7 @@ class CartItem extends React.Component {
             return{
                 qty: prevState.qty - 1
             }
-        })
+        });
     }
     render () {
         const { price, title, qty} = this.state;
