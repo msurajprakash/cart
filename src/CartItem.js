@@ -13,7 +13,21 @@ class CartItem extends React.Component {
     }
     //or we can use arrow func here to bind
     increaseQuantity = () => {
-        console.log('this', this.state)
+        //this.state.qty += 1; this will only increase qty in background and not be shown in browser
+        // console.log('this', this.state)
+
+        //setState func call the re-rendered components
+        //setState form1
+        // this.setState({
+        //     qty: this.state.qty + 1
+        // });
+        //OR
+        //setState form 2 - if prevState is required, use this
+        this.setState((prevState)=>{
+            return{
+                qty: prevState.qty + 1
+            }
+        })
     }
     render () {
         const { price, title, qty} = this.state;
@@ -25,8 +39,8 @@ class CartItem extends React.Component {
                 </div>
                 <div className='right-block'>
                     <div style={ {fontSize: 25} }>{title}</div>
-                    <div style={ {color: '#777'} }>{price}</div>
-                    <div style={ {color: '#777'} }>{qty}</div>
+                    <div style={ {color: '#777'} }>Price Rs. {price}</div>
+                    <div style={ {color: '#777'} }>Qty {qty}</div>
                     <div className='cart-item-actions'>
                         {/* buttons */}
                         <img 
