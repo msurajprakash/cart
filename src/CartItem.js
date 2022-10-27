@@ -11,7 +11,7 @@ const CartItem = (props) => {
     return (
         <div className='cart-item'>
             <div className='left-block'>
-                <img style={styles.image} alt='product' />
+                <img style={styles.image} src={product.img} alt='product' />
             </div>
             <div className='right-block'>
                 <div style={{ fontSize: 25 }}>{title}</div>
@@ -50,7 +50,8 @@ const styles = {
         height: 110,
         width: 110,
         borderRadius: 4,
-        background: '#ccc'
+        background: '#ccc',
+        objectFit: 'cover'
     }
 }
 
